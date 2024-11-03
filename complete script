@@ -1,0 +1,30 @@
+-- Create the database
+CREATE DATABASE fintap;
+
+-- Use the newly created database
+USE fintap;
+
+-- Create the users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample users
+INSERT INTO users (username) VALUES ('Naresh');
+INSERT INTO users (username) VALUES ('Harika');
+
+-- Create the expenses table
+CREATE TABLE expenses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    description VARCHAR(100),
+    spent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Insert sample expenses
+INSERT INTO expenses (user_id, amount, description) VALUES (1, 20.00, 'Spent on groceries');
+INSERT INTO expenses (user_id, amount, description) VALUES (2, 35.00, 'Spent on chocolates');
