@@ -1,0 +1,12 @@
+-- Create the database
+CREATE DATABASE fintap;
+
+-- Use the newly created database
+USE fintap;
+
+-- Create the users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
